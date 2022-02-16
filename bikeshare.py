@@ -25,7 +25,7 @@ def get_filters():
 
     # Define error function to handle invalid inputs
     def incorrect_input():
-        print ("sorry, please rectify input and try again.")
+        print ("oops, i couldn't recognise your input, please try again")
 
     # Get user input for city (chicago, new york city, washington).
     while True:
