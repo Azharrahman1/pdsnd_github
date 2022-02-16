@@ -17,10 +17,8 @@ The earliest, most recent and most common birth year
 The first five individual trip data, if needed and more data if required.
 
 ### Files used
-Chicago.csv
-New York.csv
-Washington.csv
+Chicago.csv, New York.csv and Washington.csv
 
 ### Credits
-Udacity excercises Stackoverflow
+Udacity excercises and Stackoverflow
 
