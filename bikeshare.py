@@ -18,6 +18,7 @@ def get_filters():
     """
     print('Hello! Let\'s explore some US bikeshare data!')
     print('Some data maybe missing depending on the month and location.')
+    Print("Some user data maybe missing e.g. gender, age etc")
     """
     Brief, simple inner function to show error message.
     """
