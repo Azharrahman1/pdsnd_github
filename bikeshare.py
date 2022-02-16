@@ -21,10 +21,10 @@ def get_filters():
     """
     Brief, simple inner function to show error message.
     """
-    
+
     # Define error function to handle invalid inputs
     def incorrect_input():
-        print ("sorry, please rectify input and try again.")
+        print ("oops, i couldn't recognise your input, please try again")
 
     # Get user input for city (chicago, new york city, washington).
     while True:
@@ -77,7 +77,7 @@ def load_data(city, month, day):
         df['month'] = df['Start Time'].dt.month
         df['day_of_week'] = df['Start Time'].dt.weekday_name
 
-        # Get the index for the corresponding month and then + 1 
+        # Get the index for the corresponding month and then + 1
         months = ['january', 'february', 'march', 'april', 'may', 'june']
         month = months.index(month) + 1
 
@@ -89,7 +89,7 @@ def load_data(city, month, day):
         df = df[df['day_of_week'] == day.title()]
 
     return df
-    
+
 
 def time_stats(df):
     """Displays statistics on the most frequent times of travel."""
@@ -103,17 +103,17 @@ def time_stats(df):
 # Display the most common month
     common_month = df['month'].value_counts().idxmax()  #df['month'].mode()[0]
     print('Most Common Month;', common_month)
-    
+
  # Display the most common day of week
     common_day = df['day_of_week'].mode()[0]
     print('Most common day;', common_day)
-    
+
  # Display the most common start hour
 
     df['hour'] = df['Start Time'].dt.hour
     common_hr = df['hour'].mode()[0]
     print('Most Common Hour;', common_hr)
-   
+
 
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
@@ -133,11 +133,11 @@ def station_stats(df):
 
     # display most frequent combination of start station and end station trips
     grouped_stations = df.groupby(['Start Station', 'End Station'])
-    
+
     max_combo = grouped_stations.size().sort_values(ascending = False).head(1)
-    
+
     print('\nThe most commonly used combination of start and end stations;', max_combo)
-   
+
 
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
@@ -148,22 +148,22 @@ def trip_duration_stats(df):
 
     print('\nCalculating Trip Duration...\n')
     start_time = time.time()
-    
+
     # display total travel time
     total_travel = int(df['Trip Duration'].sum())
-    
+
     total_time = str(datetime.timedelta(seconds = total_travel))
-    
+
     print('\nThe total travel time is;', total_time)
-                
-                           
+
+
     # display mean travel time
     average = int(df['Trip Duration'].mean())
-    
+
     mean_time = str(datetime.timedelta(seconds = average))
-    
+
     print('\nThe mean travel time is;', mean_time)
-   
+
 
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
@@ -190,13 +190,13 @@ def user_stats(df):
     if 'Birth Year' in df.columns:
         print("\nThe earliest year of birth is;", int(df['Birth Year'].min()))
         print("\nThe most year of birth is;", int(df['Birth Year'].max()))
-        print("\nThe most common year of birth is;", int(df['Birth Year'].mode()[0])) 
+        print("\nThe most common year of birth is;", int(df['Birth Year'].mode()[0]))
 
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
 
     #return raw data as per user request
-    
+
 def show_raw_data(df):
     user_input = input('Do you want to see raw data? Enter yes or no.\n')
     line_number = 0
